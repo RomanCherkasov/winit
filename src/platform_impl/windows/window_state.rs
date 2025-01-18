@@ -304,6 +304,9 @@ impl WindowFlags {
         if self.contains(WindowFlags::CLIP_CHILDREN) {
             style |= WS_CLIPCHILDREN;
         }
+        if self.contains(WindowFlags::TRANSPARENT) {
+            style_ex |= WS_EX_LAYERED;
+        }
 
         if self.intersects(
             WindowFlags::MARKER_EXCLUSIVE_FULLSCREEN | WindowFlags::MARKER_BORDERLESS_FULLSCREEN,
